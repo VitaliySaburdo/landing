@@ -1,10 +1,7 @@
-import gulp from "gulp";
-import { path } from "./gulp/config/path.js";
-import { copy } from "./gulp/tasks/copy.js";
+const {src, dist} = require('gulp')
 
-global.app = {
-  path,
-  gulp,
-};
+const html = (cb) => {
+return src('./src/html/index.html').pipe('./public')
+}
 
-gulp.task("default", copy);
+exports.html = html
