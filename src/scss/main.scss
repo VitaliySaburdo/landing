@@ -1,8 +1,8 @@
+@import "./utils/mixin";
+@import "./utils/visually-hidden";
+@import "./utils/variables";
+
 @import "./base/reset-styles";
 @import "./base/body-settings";
 @import "./base/container-setting";
 @import "./base/section-settings";
-
-@import "./utils/mixin";
-@import "./utils/visually-hidden";
-@import "./utils/variables";

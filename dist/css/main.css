@@ -1,0 +1,110 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+:root {
+  /* Fonts */
+  --primary-font: Roboto, sans-serif;
+  --secondary-font: Raleway, sans-serif;
+  /* Text color */
+  --primary-text-color: #757575;
+  --title-text-color: #212121;
+  --text-logo-color: #000000;
+  --wite-text-color: #ffffff;
+  --footer-text-color: rgba(255, 255, 255, 0.6);
+  --accent-text-color: #2196f3;
+  /* Background-color */
+  --accent-color: #2196f3;
+  --accent-button-color: #188ce8;
+  --wite-background-color: #ffffff;
+  --overlay-background-color: rgba(33, 150, 243, 0.9);
+  --button-color: #f5f4fa;
+  --accent-background-color: #2f303a;
+  --section-background-color: #eeeeee;
+  --alt-section-color: #e5e5e5;
+  --team-background-color: #f5f4fa;
+  --social-icon-background-color: rgba(255, 255, 255, 0.1);
+  /* Line color */
+  --header-line-color: #ececec;
+  /* Icon color*/
+  --primary-icon-color: #afb1b8;
+  --second-icon-color: #ffffff;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base styles */
+body {
+  background-color: var(--wite-background-color);
+  color: var(--primary-text-color);
+  font-family: var(--primary-font);
+  font-size: 14px;
+  letter-spacing: 0.03em;
+}
+
+/* Contemner settings */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 480px) {
+  .container {
+    width: 480px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+@media screen and (min-width: 1200px) {
+  .section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+}
