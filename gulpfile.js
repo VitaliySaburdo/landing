@@ -10,7 +10,7 @@ const fileIncludeSetting = {
   basepath: "@file",
 };
 
-gulp.task("includeFile", function () {
+gulp.task("html", function () {
   return gulp
     .src("./src/*.html")
     .pipe(fileInclude(fileIncludeSetting))
@@ -24,7 +24,7 @@ gulp.task("sass", function () {
     .pipe(gulp.dest("./dist/css/"));
 });
 
-gulp.task("copyImages", function () {
+gulp.task("images", function () {
   return gulp.src("./src/img/**/*").pipe(gulp.dest("./dist/img/"));
 });
 
@@ -33,7 +33,7 @@ const serverOptions = {
   open: true,
 };
 
-gulp.task("startServer", function () {
+gulp.task("server", function () {
   return gulp.src("./dist/").pipe(server(serverOptions));
 });
 
@@ -44,3 +44,7 @@ gulp.task("clean", function (done) {
   done();
 });
 
+gulp.task("watch", function () {
+ gulp.watch("./src/scss/**/*.scss", gulp.parallel("sass"));
+
+})
