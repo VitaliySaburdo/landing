@@ -4,6 +4,7 @@ const sass = require("gulp-sass")(require("sass"));
 const server = require("gulp-server-livereload");
 const clean = require("gulp-clean");
 const fs = require("fs");
+const sourceMaps = require("gulp-sourcemaps")
 
 const fileIncludeSetting = {
   prefix: "@@",
@@ -19,8 +20,10 @@ gulp.task("html", function () {
 
 gulp.task("sass", function () {
   return gulp
-    .src("./src/scss/*.scss")
+    .src("./src/scss/**/*.scss")
+    .pipe(sourceMaps.init())
     .pipe(sass())
+    .pipe(sourceMaps.write())
     .pipe(gulp.dest("./dist/css/"));
 });
 
@@ -45,6 +48,16 @@ gulp.task("clean", function (done) {
 });
 
 gulp.task("watch", function () {
- gulp.watch("./src/scss/**/*.scss", gulp.parallel("sass"));
+  gulp.watch("./src/scss/**/*.scss", gulp.parallel("sass"));
+  gulp.watch("./src/**/*.html", gulp.parallel("html"));
+  gulp.watch("./src/img/**/*", gulp.parallel("images"));
+});
 
-})
+gulp.task(
+  "default",
+  gulp.series(
+    "clean",
+    gulp.parallel("html", "sass", "images"),
+    gulp.parallel("server", "watch")
+  )
+);
