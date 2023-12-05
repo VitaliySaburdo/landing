@@ -8,8 +8,9 @@ const sourceMaps = require("gulp-sourcemaps");
 // const groupMedia = require("gulp-group-css-media-queries");
 const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
-
 const webpack = require("gulp-webpack");
+const babel = require("gulp-babel");
+const imagemin = require("gulp-imagemin");
 
 const fileIncludeSetting = {
   prefix: "@@",
@@ -49,7 +50,9 @@ gulp.task("sass", function () {
 });
 
 gulp.task("images", function () {
-  return gulp.src("./src/img/**/*").pipe(gulp.dest("./dist/img/"));
+  return gulp.src("./src/img/**/*")
+  .pipe(imagemin({verbose: true}))
+  .pipe(gulp.dest("./dist/img/"));
 });
 
 // gulp.task("fonts", function () {
@@ -63,6 +66,7 @@ gulp.task("images", function () {
 gulp.task("js", function () {
   return gulp.src("./src/js/*.js")
   .pipe(plumber(plumberNotify("JS")))
+  .pipe(babel())
   .pipe(webpack(require("./webpack.config")))
   .pipe(gulp.dest("./dist/js"));
 })
