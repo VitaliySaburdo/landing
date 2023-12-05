@@ -22,6 +22,7 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
+    "browser-sync": "^2.29.3",
     "gulp-cli": "^2.3.0"
   }
 }
